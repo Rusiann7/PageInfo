@@ -19,10 +19,10 @@
     <div v-if="active === 'login'">
       <form method="post" @submit.prevent="loginn">
         <label for="email">Email: </label>
-        <input type="email" required v-model="login.email">
+        <input type="email" required v-model="login.email" placeholder="Email">
 
         <label for="password">Password: </label>
-        <input type="password" required v-model="login.password">
+        <input type="password" required v-model="login.password" placeholder="Password">
 
         <button type="submit">Login</button>
       </form>
