@@ -29,7 +29,7 @@
     </div>
 
     <div v-if="active === 'register'">
-      <form method="post" @submit.prevent="">
+      <form method="post" @submit.prevent="registerr">
         <label for="email">Email: </label>
         <input type="email" placeholder="Email" required v-model="register.email">
 
@@ -44,6 +44,8 @@
 
         <label for="lnname">Last Name: </label>
         <input type="text" placeholder="Last Name" required v-model="register.lnname">
+
+        <button type="submit" class="">Submit</button>
       </form>
     </div>
   </div>
@@ -53,14 +55,15 @@
 </template>
 
 <script>
-const url1 = "http:/localhost:8000";
+const url1 = "http://localhost:8001";
 //const url2 = "https:/"
 
 export default{
   name: "logIn",
   data() {
     return{
-      loginphp: `${url1}/login.php`,
+      loginphp: `${url1}/login_user.php`,
+      registerphp: `${url1}/register.php`,
       isLoading: false,
       login: {email: "", password: "" },
       register: {email: "", password: "", confirmpassword: "", flname: "", lnname: ""},
@@ -84,10 +87,33 @@ export default{
          const result = await response.json();
 
          if(result.success){
-          this.$router.push('/dashboard')
+          this.$router.push('/')
          }else{
           console.log("Error")
          }
+      }catch(error){
+        console.error(error)
+      }
+    },
+
+    async registerr(){
+      try{
+
+        const response = await fetch(this.registerphp, {
+          method: "post",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({
+            action: "register",
+            ...this.register
+          }),
+        });
+
+        const result = await response.json()
+
+        if(result.success){
+          this.isLoading = false;
+          this.active = "login"
+        }
       }catch(error){
         console.error(error)
       }
