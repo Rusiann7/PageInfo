@@ -1,4 +1,4 @@
-<template>
+<template><!--version 2-->
   <header>
     <nav>
     <ul class="sidebar" ref="sidebar">
