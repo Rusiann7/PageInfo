@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const login = () => import('../components/user/logIn.vue')
 const dashboard = () => import('../dashBoard.vue')
@@ -7,7 +7,7 @@ const discover = () => import('../components/user/discoverView.vue')
 const admin = () => import('../components/admin/adminPanel.vue')
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
