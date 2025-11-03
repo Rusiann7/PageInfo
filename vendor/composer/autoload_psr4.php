@@ -18,5 +18,6 @@ return array(
     'Nyholm\\Psr7\\' => array($vendorDir . '/nyholm/psr7/src'),
     'Http\\Discovery\\' => array($vendorDir . '/php-http/discovery/src'),
     'Gemini\\' => array($vendorDir . '/google-gemini-php/client/src'),
+    'GeminiAPI\\' => array($vendorDir . '/gemini-api-php/client/src'),
     'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
 );

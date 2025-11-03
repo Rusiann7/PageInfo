@@ -1,4 +1,5 @@
 <template>
+
   <header>
     <nav>
     <ul class="sidebar" ref="sidebar">
@@ -26,7 +27,7 @@
 
     <ul>
       <li>
-        <a href="#" @click.prevent="$router.push('/')"
+        <a href="#" @click.prevent="$router.push('/dashboard')"
           >PageInfo</a>
       </li>
       <li class="hideMobile">
@@ -61,53 +62,32 @@
   </header>
 
   <main>
-
-    <div class="header-section" style="margin-top: 100px;">
-      <h1>PageInfo</h1>
-      <h3>Instant Book Info</h3>
-    </div>
-
-    <div class="search-area" style="margin-top: 50px;">
-
-      <form method="post" @submit.prevent="">
-        <p>Search your books here:</p>
-        <input type="text" placeholder="Type Here">
-        <br>
-        <button class="" type="submit">Search</button>
-      </form>
-    </div>
-
-    <div class="modal" v-if="modal === true">
-
-      <div class="image">
-
-        <h1>Title of book</h1>
-        <br>
-        <img src="../src/assets/logo5.png" alt="" style="max-width: 480px; width: 100%; height: auto;">
-
-        <br>
-        <br>
-
-        <button class="">Favorite</button>
+    <div class="container">
+      <div class="header" style="margin-top: 100px;">
+        <h1>Discover</h1>
       </div>
 
-      <div class="text">
-        <h1>AI summarizer</h1>
-        <input type="text">
+      <div class="form-area" style="margin-top: 30px;">
+        <form method="post" @submit.prevent="">
+          <p>Search: </p>
+          <input type="text" placeholder="Search" class="">
+          <button type="submit">Search</button>
+        </form>
       </div>
 
-    </div>
-
-    <div class="login" style="margin-top: 50px;">
-      <h1>Login to save your books and write a review</h1>
-
-      <button class="" @click="$router.push('/login')">Login</button>
+      <div class="content" v-if="modal === true" style="margin-top: 60px;">
+        <div class="tiles">
+          <img src="/src/assets/logo5.png" alt="image" style="max-width: 480px; width: 100%; height: auto;">
+          <h3><strong>Title of book</strong></h3>
+          <button class="btn" style="margin-top: 60px; margin-bottom: 20px;">View</button>
+        </div>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
-import { removeToken} from "../src/utils/auth";
+import { removeToken} from "../../utils/auth";
 
 export default{
   name: "dashBoard",
@@ -154,6 +134,36 @@ export default{
 </script>
 
 <style scoped>
+
+.form-area{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tiles{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  border: solid black;
+  width: 30%;
+  height: 30%;
+  background-color: #3a4252;
+  border-radius: 30px;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content{
+  background-color: aqua;
+  padding: 10px;
+  border-radius: 20px;
+}
 
 /* Added navbar styles */
 * {
@@ -282,64 +292,4 @@ nav li:first-child {
   }
 }
 
-.search-area{
-  background-color: aqua;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  border-radius: 50px;
-}
-
-.header-section{
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  border-radius: 50px;
-  gap: 50px;
-}
-
-.modal{
-  display: flex;
-  margin-top: 50px;
-  background-color: #2d333f;
-  padding: 30px;
-  border-radius: 50px;
-  margin: 10px;
-}
-
-.image{
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  background-color: aqua;
-  border-radius: 50px;
-  padding: 10px;
-  align-items: center;
-  justify-content: center;
-}
-
-.text{
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  background-color: blueviolet;
-  border-radius: 50px;
-  padding: 10px;
-  align-items: center;
-}
-
-.login{
-  display: flex;
-  flex-direction: column;
-  background-color: cadetblue;
-  padding: 10px;
-  border-radius: 20px;
-  align-items: center;
-  justify-content: center;
-}
-
-.login button{
-  width: 40%;
-}
 </style>

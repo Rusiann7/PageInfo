@@ -6,6 +6,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 //use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use Gemini\GeminiClient;
+use GeminiAPI\Client;
+use GeminiAPI\Resources\ModelName;
+use GeminiAPI\Resources\Parts\TextPart;
 
 function smtp($email, $body, $altbody){
     global $epass;
@@ -78,4 +81,17 @@ function AIsummarizer($call, $call1, $call2){
     }catch(Exception $e){
         error_log("AI Summarizer Error: " . $e->getMessage());
     }
+}
+
+function AI(){
+
+
+$client = new Client('GEMINI_API_KEY');
+$chat = $client->generativeModel(ModelName::GEMINI_PRO)->startChat();
+
+$response = $chat->sendMessage(new TextPart('Hello World in PHP'));
+print $response->text();
+
+$response = $chat->sendMessage(new TextPart('in Go'));
+print $response->text();
 }

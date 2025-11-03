@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '0e87c990618998f5decfeef16be219cef8b2f748',
+        'reference' => 'eeeb84b366fd4f22cab92ad0a4759034edb7ebda',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '0e87c990618998f5decfeef16be219cef8b2f748',
+            'reference' => 'eeeb84b366fd4f22cab92ad0a4759034edb7ebda',
             'dev_requirement' => false,
         ),
         'firebase/php-jwt' => array(
@@ -26,6 +26,15 @@
             'install_path' => __DIR__ . '/../firebase/php-jwt',
             'aliases' => array(),
             'reference' => 'd1e91ecf8c598d073d0995afa8cd5c75c6e19e66',
+            'dev_requirement' => false,
+        ),
+        'gemini-api-php/client' => array(
+            'pretty_version' => 'v1.7.2',
+            'version' => '1.7.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../gemini-api-php/client',
+            'aliases' => array(),
+            'reference' => 'a48e61285d82b24117a5c8928dd1e504818f908b',
             'dev_requirement' => false,
         ),
         'google-gemini-php/client' => array(

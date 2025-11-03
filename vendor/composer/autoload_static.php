@@ -39,6 +39,7 @@ class ComposerStaticInitde1f5500597e7e63c9d5d7b5cbe9a06b
         'G' => 
         array (
             'Gemini\\' => 7,
+            'GeminiAPI\\' => 10,
         ),
         'F' => 
         array (
@@ -95,6 +96,10 @@ class ComposerStaticInitde1f5500597e7e63c9d5d7b5cbe9a06b
         'Gemini\\' => 
         array (
             0 => __DIR__ . '/..' . '/google-gemini-php/client/src',
+        ),
+        'GeminiAPI\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gemini-api-php/client/src',
         ),
         'Firebase\\JWT\\' => 
         array (
